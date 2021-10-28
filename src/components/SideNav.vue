@@ -38,6 +38,7 @@
             </v-list>
                 <v-btn
                 plain
+                @click="logOutUser"
                 >Log Out</v-btn>
                 <v-btn
                 plain
@@ -80,6 +81,26 @@ import cookies from "vue-cookies"
                         console.log(response)
                         this.firstName = response.data.firstName;
                         //passes to data to use in template
+
+                    }).catch((error) => {
+                        console.error("There was an error" +error);
+                    })
+                },
+                logOutUser() {
+                    axios.request({
+                    url : `${process.env.VUE_APP_BASE_DOMAIN}/api/userlogin`,
+                        method : "DELETE",
+                        headers : {
+                            'Content-Type': 'application/json'
+                        },
+                        data : {
+                            loginToken : cookies.get('loginToken')
+                        }
+                    }).then((response) => {
+                        console.log(response)
+                        cookies.remove('loginToken');
+                        cookies.remove('userId')
+                        this.$router.push('/');
 
                     }).catch((error) => {
                         console.error("There was an error" +error);
