@@ -1,9 +1,5 @@
 <template>
     <main>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Junge&display=swap" rel="stylesheet">
-
         <section>
             <v-container>
                 <v-row>
@@ -59,13 +55,11 @@ import EditorLogin from './EditorLogin.vue'
 
 <style scoped>
 h1,h2{
-font-family: 'Junge', serif;
 color: #A1887F;
 font-size: 2.6em;
 padding: 20px;
 }
 h4{
-font-family: 'Junge', serif;
 color: #A1887F;
 }
 /* section{

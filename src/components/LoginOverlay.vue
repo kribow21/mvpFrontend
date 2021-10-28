@@ -92,7 +92,7 @@ import cookies from "vue-cookies"
                     console.log(response);
                     cookies.set('loginToken', response.data.loginToken);
                     cookies.set('userId', response.data.userId);
-                    // this.$router.push('Log');
+                    this.$router.push('/log');
 
                 }).catch((error) => {
                     console.error("There was an error" +error);
