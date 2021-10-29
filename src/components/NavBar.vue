@@ -1,27 +1,32 @@
 <template>
     <div>
-        <v-navigation-drawer
-            absolute
-            permanent
-            left
+        <v-app-bar
             color="primary"
+            dark
+            rounded
             >
-            <template v-slot:prepend>
+            <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
                 <v-list-item two-line>
                 <v-list-item-content>
-                    <v-list-item-title>{{firstName}}</v-list-item-title>
                     <v-list-item-subtitle>Logged In</v-list-item-subtitle>
+                    <v-list-item-title>{{firstName}}</v-list-item-title>
                 </v-list-item-content>
                 </v-list-item>
-            </template>
-                <v-list-item>
-                    <v-img
+                    <!-- <v-img
                     max-height="150"
                     max-width="150"
                     src="../assets/seastheday.jpg"
-                    ></v-img>
-                </v-list-item>
-            <v-list dense>
+                    ></v-img> -->
+        </v-app-bar>
+
+        <v-navigation-drawer
+            color="primary"
+            v-model="drawer"
+            absolute
+            temporary
+    >
+            >
+                <v-list dense>
                 <v-list-item
                 v-for="item in items"
                 :key="item.title"
@@ -34,8 +39,8 @@
                     <v-list-item-title>{{ item.title }}</v-list-item-title>
                 </v-list-item-content>
                 </v-list-item>
+                </v-list>
 
-            </v-list>
                 <v-btn
                 plain
                 @click="logOutUser"
@@ -142,25 +147,25 @@
 import axios from "axios";
 import cookies from "vue-cookies"
     export default {
-        name : "SideNav",
-            data () {
-                return {
-                    firstName : "",
-                    absolute: true,
-                    overlay: false,
-                    userEmail : "",
-                    userPassword : "",
-                    delPassword : "",
-                    fName : "",
-                    items: [
-                    { title: 'Log', icon: 'mdi-text-box-plus-outline' },
-                    { title: 'Calendar', icon: 'mdi-calendar-range' },
-                    { title: 'Inspiration', icon: 'mdi-lightbulb-outline' },
-                    { title: 'Mindful Benefits', icon: 'mdi-creation' }
-                    ],
-                }
-                },
-            mounted () {
+        name : "NavBar",
+            data: () => ({
+                drawer: false,
+                group: null,
+                firstName : "",
+                absolute: true,
+                overlay: false,
+                userEmail : "",
+                userPassword : "",
+                delPassword : "",
+                fName : "",
+                items: [
+                { title: 'Log', icon: 'mdi-text-box-plus-outline' },
+                { title: 'Calendar', icon: 'mdi-calendar-range' },
+                { title: 'Inspiration', icon: 'mdi-lightbulb-outline' },
+                { title: 'Mindful Benefits', icon: 'mdi-creation' }
+                ]
+    }),
+                mounted () {
                 this.getUser();
             },
             methods: {
