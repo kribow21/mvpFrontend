@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-btn color="secondary" @click="getQuote">
+        <v-btn color="secondary" rounded @click="getQuote">
             Click for a reflection prompt
         </v-btn>
         <h2>{{quote}}</h2>

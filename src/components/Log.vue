@@ -19,7 +19,7 @@
                         background-color="primary"
                         color="secondary"
                         v-model="entry"
-                        label="Keep palm and type on..."
+                        label="Keep calm and type on..."
                         counter="400"
                         rounded
                     ></v-textarea>
@@ -31,9 +31,10 @@
                 </v-btn>
             </v-row>
             <v-row>
-                <h2>Would you like to check in on your mood?</h2>
+                <MoodPicker/>
             </v-row>
         </v-container>
+        <LogFooter/>
     </main>
 </template>
 
@@ -42,11 +43,15 @@ import NavBar from './NavBar.vue'
 import QuotePrompt from './QuotePrompt.vue'
 import axios from "axios";
 import cookies from "vue-cookies"
+import MoodPicker from './MoodPicker.vue';
+import LogFooter from './LogFooter.vue';
     export default {
         name : "Log",
     components: { 
         NavBar,
-        QuotePrompt
+        QuotePrompt,
+        MoodPicker,
+        LogFooter
         },
         data() {
             return {
