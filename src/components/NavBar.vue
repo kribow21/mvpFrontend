@@ -12,11 +12,11 @@
                     <v-list-item-title>{{firstName}}</v-list-item-title>
                 </v-list-item-content>
                 </v-list-item>
-                    <!-- <v-img
-                    max-height="150"
-                    max-width="150"
-                    src="../assets/seastheday.jpg"
-                    ></v-img> -->
+                <v-list-item>
+                    <v-spacer></v-spacer>
+                    <v-icon> mdi-turtle</v-icon>
+                    <h2>Seas the Day</h2>
+                </v-list-item>
         </v-app-bar>
 
         <v-navigation-drawer
@@ -25,7 +25,13 @@
             absolute
             temporary
     >
-            >
+                <v-list-item>
+                    <v-img
+                    max-height="150"
+                    max-width="150"
+                    src="../assets/seastheday.jpg"
+                    ></v-img>
+                </v-list-item>
                 <v-list dense>
                 <v-list-item
                 v-for="item in items"
