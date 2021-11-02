@@ -20,18 +20,29 @@
                         color="secondary"
                         v-model="entry"
                         label="Keep calm and type on..."
-                        counter="400"
+                        counter="1000"
                         rounded
                     ></v-textarea>
             </v-row>
             <v-row>
                 <v-btn rounded color="secondary"
-                @click="postEntry">
+                @click="onSubmit">
                     Submit entry
                 </v-btn>
             </v-row>
             <v-row>
                 <MoodPicker/>
+            </v-row>
+            <v-row>
+                <h1>Your Previous Entries:</h1>
+                <EntryPost
+                @updateLog="getEntry"
+                v-for="entry in myEntries"
+                v-bind:key="entry.entryId"
+                :entryId="entry.entryId"
+                :content="entry.content"
+                :dateStamp="entry.dateStamp"
+                :userId="entry.userId"/>
             </v-row>
         </v-container>
         <LogFooter/>
@@ -45,20 +56,27 @@ import axios from "axios";
 import cookies from "vue-cookies"
 import MoodPicker from './MoodPicker.vue';
 import LogFooter from './LogFooter.vue';
+import EntryPost from './EntryPost.vue';
     export default {
         name : "Log",
     components: { 
         NavBar,
         QuotePrompt,
         MoodPicker,
-        LogFooter
+        LogFooter,
+        EntryPost
         },
-        data() {
-            return {
-                entry : "",
-                myQuotes: []
-            }
-        },
+    data() {
+        return {
+            entry : "",
+            myQuotes: [],
+            entryDate : "",
+            myEntries : []
+        }
+    },
+    mounted () {
+        this.getEntry();
+    },
     methods: {
         postEntry() {
             axios.request({
@@ -69,7 +87,8 @@ import LogFooter from './LogFooter.vue';
                     },
                     data : {
                         "loginToken" : cookies.get("loginToken"),
-                        "content" : this.entry
+                        "content" : this.entry,
+                        "date" : this.userEntryDate()
                     }
                 }).then((response) => {
                     console.log(response)
@@ -79,7 +98,33 @@ import LogFooter from './LogFooter.vue';
                 }).catch((error) => {
                     console.error("There was an error" +error);
                 })
-        }
+        },
+        userEntryDate(){
+            return this.entryDate = new Date().toISOString().slice(0, 10);
+        },
+        onSubmit(){
+            this.postEntry()
+            this.getEntry()
+        },
+        getEntry() {
+            axios.request({
+                url : `${process.env.VUE_APP_BASE_DOMAIN}/api/entry`,
+                    method : "GET",
+                    headers : {
+                        'Content-Type': 'application/json'
+                    },
+                    params : {
+                        "userId" : cookies.get("userId"),
+                    }
+                }).then((response) => {
+                    console.log(response)
+                    this.myEntries = response.data
+
+
+                }).catch((error) => {
+                    console.error("There was an error" +error);
+                })
+        },
     },
     }
 </script>

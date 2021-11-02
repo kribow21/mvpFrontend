@@ -2,7 +2,6 @@
     <div>
         <v-container>
                 <p>Limit 1 a day</p>
-
             <v-row>
                 <h2>Would you like to check in on your mood?</h2>
                 <h1> {{userMood}}</h1>
@@ -15,6 +14,7 @@
             <v-row>
             <v-col @click="moodSelector('joyful')">
                 <v-img
+                class="moodImg"
                     width="100"
                     src="../assets/mostly-sunny.png">
                 </v-img>
@@ -22,6 +22,7 @@
             </v-col>
             <v-col @click="moodSelector('peaceful')">
                 <v-img
+                class="moodImg"
                     width="100"
                     src="../assets/peace.png">
                 </v-img>
@@ -29,6 +30,7 @@
             </v-col>
                 <v-col @click="moodSelector('calm')">
                 <v-img
+                class="moodImg"
                     width="100"
                     src="../assets/sea.png">
                 </v-img>
@@ -36,6 +38,7 @@
             </v-col>
             <v-col @click="moodSelector('gloomy')">
                 <v-img
+                class="moodImg"
                     width="100"
                     src="../assets/cloudy-day.png">
                 </v-img>
@@ -45,6 +48,7 @@
             <v-row>
             <v-col @click="moodSelector('anxious')">
                 <v-img
+                class="moodImg"
                     width="100"
                     src="../assets/rainy.png">
                 </v-img>
@@ -52,6 +56,7 @@
             </v-col>
             <v-col @click="moodSelector('frustrated')">
                 <v-img
+                class="moodImg"
                     width="100"
                     src="../assets/storm2.png">
                 </v-img>
@@ -59,6 +64,7 @@
             </v-col>
                 <v-col @click="moodSelector('sensitive')">
                 <v-img
+                class="moodImg"
                     width="100"
                     src="../assets/rainy2.png">
                 </v-img>
@@ -66,6 +72,7 @@
             </v-col>
             <v-col @click="moodSelector('annoyed')">
                 <v-img
+                class="moodImg"
                     width="100"
                     src="../assets/storm.png">
                 </v-img>
@@ -132,5 +139,10 @@ h1{
 }
 div{
     width: 100%;
+}
+.moodImg:hover{
+    border-style: solid;
+    border-color: rgb(240, 200, 24);
+    border-radius: 5px;
 }
 </style>
