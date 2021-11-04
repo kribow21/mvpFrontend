@@ -117,7 +117,7 @@ import cookies from "vue-cookies"
                         
 
                     }).catch((error) => {
-                        console.error("There was an error" +error);
+                        console.error(error);
                         document.getElementById('moodResp').innerText="Oh no, exceeded daily limit"
                     })
         },

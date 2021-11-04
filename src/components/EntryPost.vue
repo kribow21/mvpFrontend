@@ -7,63 +7,22 @@
             
         >
             <v-card-text>
-            <p class="text-h4 text--primary">
-                {{dateStamp}}
+            <p class="text-h4 text--secondary">
+                {{dateOfWeek}}
             </p>
             <div class="text--primary">
                 {{content}} 
             </div>
             </v-card-text>
             <v-card-actions>
-            <v-btn
-                text
-                color="primary"
-                @click="reveal = true"
-            >
-                Edit Entry
-            </v-btn>
-            <v-btn
-                text
-                color="primary"
-                @click="deleteEntry"
-            >
-                Delete Entry
-            </v-btn>
+                <v-btn
+                    text
+                    color="primary"
+                    @click="deleteEntry"
+                >
+                    Delete Entry
+                </v-btn>
             </v-card-actions>
-
-            <v-expand-transition>
-            <v-card
-                v-if="reveal"
-                class="transition-fast-in-fast-out v-card--reveal"
-                style="height: 100%;"
-            >
-                <v-card-text>
-                    <v-textarea
-                        background-color="primary"
-                        color="secondary"
-                        v-model="editedEntry"
-                        counter="1000"
-                        rounded
-                    ></v-textarea>
-                </v-card-text>
-                <v-card-actions class="pt-0">
-                <v-btn
-                    text
-                    color="teal accent-4"
-                    @click="reveal = false"
-                >
-                    Close
-                </v-btn>
-                <v-btn
-                    text
-                    color="teal accent-4"
-                    @click="reveal = false"
-                >
-                    Submit
-                </v-btn>
-                </v-card-actions>
-            </v-card>
-            </v-expand-transition>
         </v-card>
     </section>
 </template>
@@ -75,8 +34,13 @@ import cookies from "vue-cookies"
         name : "EntryPost",
         data() {
             return {
-                reveal: false,
-                editedEntry : ""
+                stringDate: ""
+            }
+        },
+        computed: {
+            dateOfWeek() {
+                let date = new Date(this.dateStamp)
+                return date.toDateString()
             }
         },
         props : {
@@ -105,27 +69,6 @@ import cookies from "vue-cookies"
                 console.error("There was an error" +error);
             })
             },
-        editEntry(){
-            axios.request({
-                url : `${process.env.VUE_APP_BASE_DOMAIN}/api/entry`,
-                method : "PATCH",
-                headers : {
-                    'Content-Type': 'application/json'
-                },
-                data: {
-                    "loginToken" : cookies.get('loginToken'),
-                    "entryId": this.entryId,
-                    "content": this.editedEntry
-                }
-            }).then((response) => {
-                console.log(response);
-                this.$emit('UpdateLog');
-
-
-            }).catch((error) => {
-                console.error("There was an error" +error);
-            })
-        }
     },
     }
 </script>
@@ -138,7 +81,7 @@ import cookies from "vue-cookies"
     width: 100%;
 }
 section{
-    margin-bottom: 2vh;
+    margin-bottom: 4vh;
 }
 
 </style>

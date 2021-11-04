@@ -36,6 +36,7 @@
                 <v-list-item
                 v-for="item in items"
                 :key="item.title"
+                :to="item.route"
                 >
                 <v-list-item-icon>
                     <v-icon>{{ item.icon }}</v-icon>
@@ -165,8 +166,8 @@ import cookies from "vue-cookies"
                 delPassword : "",
                 fName : "",
                 items: [
-                { title: 'Log', icon: 'mdi-text-box-plus-outline' },
-                { title: 'Calendar', icon: 'mdi-calendar-range' },
+                { title: 'Log', icon: 'mdi-text-box-plus-outline',route: '/log' },
+                { title: 'Calendar', icon: 'mdi-calendar-range', route: '/calendar' },
                 { title: 'Inspiration', icon: 'mdi-lightbulb-outline' },
                 { title: 'Mindful Benefits', icon: 'mdi-creation' }
                 ]
