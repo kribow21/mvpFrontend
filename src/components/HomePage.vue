@@ -58,15 +58,18 @@ h1,h2{
 color: #A1887F;
 font-size: 2.6em;
 padding: 20px;
+text-align: center;
+text-shadow:  0 0 25px rgb(199, 126, 43);
 }
 h4{
 color: #A1887F;
+text-align: center;
 }
 /* section{
     background-color: rgb(224, 191, 120);
 } */
 section {
-    background-image: linear-gradient(to bottom right, #86e9f7, #FFECB3);
+    background-image: linear-gradient(to top right, #86e9f7, #FFECB3);
 }
 #logo{
     border-radius: 30px;

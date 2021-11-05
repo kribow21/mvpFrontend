@@ -1,20 +1,54 @@
 <template>
     <div>
-    <v-container>
-        <v-row class="text-center">
-        <v-col col="12">
-            <v-sheet height="600">
+        <v-toolbar
+            flat
+            color="accent"
+        >
+            <v-btn
+            fab
+            text
+            small
+            color="blue darken-2"
+            @click="prev"
+            >
+            <v-icon small>
+                mdi-chevron-left
+            </v-icon>
+            </v-btn>
+            <v-btn
+            fab
+            text
+            small
+            color="blue darken-2"
+            @click="next"
+            >
+            <v-icon small>
+                mdi-chevron-right
+            </v-icon>
+            </v-btn>
+            <v-toolbar-title v-if="$refs.calendar">
+            {{ $refs.calendar.title }}
+            </v-toolbar-title>
+        </v-toolbar>
+        <v-row>
+        <v-col>
+            <v-sheet height="500">
             <v-calendar
                 ref="calendar"
                 :value="today"
-                :events="events"
                 color="primary"
-                type="month"
-            ></v-calendar>
+            >
+                <template v-slot:day="{date }">
+                <v-row justify="center">
+                    <div v-if="mood[date]">
+                    <h2>{{mood[date]}}</h2>
+                    </div>
+                </v-row>
+                </template>
+            </v-calendar>
             </v-sheet>
         </v-col>
         </v-row>
-    </v-container>
     </div>
 </template>
 
@@ -30,19 +64,23 @@ import cookies from "vue-cookies"
         },
         data() {
             return {
-                today: "",
-                events: [
-                {
-                    start: "2021-11-02",
-                    name: "frustrated"
-                }
-                ],
+            today: '',
+            mood : {
+
+                },
             }
         },
                 methods: {
                 todaysDate(){
                     this.today = new Date().toISOString().slice(0, 10);
                 },
+                prev () {
+                    this.$refs.calendar.prev()
+                },
+                next () {
+                    this.$refs.calendar.next()
+                },
+
                 getMood () {
                     axios.request({
                         url : `${process.env.VUE_APP_BASE_DOMAIN}/api/mood`,
@@ -55,10 +93,7 @@ import cookies from "vue-cookies"
                             }
                         }).then((response) => {
                             console.log(response)
-                            // this.start = response.data[0].dateStamp
-                            // console.log(this.start);
-                            // this.name = response.data[0].mood
-                            // console.log(this.name);
+                            this.mood = response.data
 
                         }).catch((error) => {
                             console.error("There was an error" +error);

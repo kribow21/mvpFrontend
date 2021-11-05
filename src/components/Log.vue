@@ -23,10 +23,8 @@
                         counter="1000"
                         rounded
                     ></v-textarea>
-            </v-row>
-            <v-row>
                 <v-btn rounded color="secondary"
-                @click="onSubmit">
+                    @click="onSubmit">
                     Submit entry
                 </v-btn>
             </v-row>
@@ -133,6 +131,7 @@ import EntryPost from './EntryPost.vue';
 div{
     background-image: linear-gradient(to top left, #86e9f7, #FFECB3);
     padding: 10px;
+    justify-content: center;
 }
 h1, h2{
 color: #A1887F;

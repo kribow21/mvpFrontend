@@ -47,5 +47,7 @@ import axios from "axios";
 <style scoped>
 h2{
 color: #A1887F;
+text-align: center;
+
 }
 </style>
