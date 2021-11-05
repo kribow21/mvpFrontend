@@ -144,5 +144,7 @@ div{
     border-style: solid;
     border-color: rgb(240, 200, 24);
     border-radius: 5px;
+    cursor: pointer
 }
+
 </style>

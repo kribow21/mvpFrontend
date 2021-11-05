@@ -1,6 +1,8 @@
 <template>
     <div>
         <v-btn
+        elevation="10"
+        rounded
         color="secondary"
         @click="overlay = !overlay"
         >

@@ -24,7 +24,7 @@
                         rounded
                     ></v-textarea>
                 <v-btn rounded color="secondary"
-                    @click="onSubmit">
+                    @click="postEntry">
                     Submit entry
                 </v-btn>
             </v-row>
@@ -91,18 +91,17 @@ import EntryPost from './EntryPost.vue';
                 }).then((response) => {
                     console.log(response)
                     this.myQuotes = response.data
+                    this.getEntry()
+
 
 
                 }).catch((error) => {
                     console.error("There was an error" +error);
                 })
         },
+        //passes the date stamp to be inputed into the db with the post entry request
         userEntryDate(){
             return this.entryDate = new Date().toISOString().slice(0, 10);
-        },
-        onSubmit(){
-            this.postEntry()
-            this.getEntry()
         },
         getEntry() {
             axios.request({

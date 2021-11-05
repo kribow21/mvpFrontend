@@ -38,6 +38,7 @@ import cookies from "vue-cookies"
             }
         },
         computed: {
+            //converting the date format to a string that looks better on the entry card
             dateOfWeek() {
                 let date = new Date(this.dateStamp)
                 return date.toDateString()
@@ -64,6 +65,8 @@ import cookies from "vue-cookies"
                 }
             }).then((response) => {
                 console.log(response)
+                this.$emit('UpdateLog');
+
                 
             }).catch((error) => {
                 console.error("There was an error" +error);
