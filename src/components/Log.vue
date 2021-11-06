@@ -101,7 +101,9 @@ import EntryPost from './EntryPost.vue';
         },
         //passes the date stamp to be inputed into the db with the post entry request
         userEntryDate(){
-            return this.entryDate = new Date().toISOString().slice(0, 10);
+            this.entryDate = new Date().toISOString().slice(0,10);
+            console.log(this.entryDate);
+            return this.entryDate
         },
         getEntry() {
             axios.request({
