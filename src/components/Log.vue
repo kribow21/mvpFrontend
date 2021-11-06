@@ -1,13 +1,13 @@
 <template>
     <main>
         <NavBar/>
-        <v-container>
+        <v-container fluid>
                 <v-row>
                         <v-col cols="12">
                         <v-img
                         alt="mindful quote"
-                        src="https://lh6.googleusercontent.com/jteC_JceOvHNt29wT6sHU6sgUZJ_d52K3iZ21zgG5oYtjepaajWT9O5bVihlxlI_9pcZUbuii3b1uwWi_fxeVN70XgkNGAyzYp2z6S4lw0ICpuEojWxMlGYbNk_FORGbqOswPMp0"
-                        height="400"
+                        src="../assets/journal.png"
+                        height="450"
                         ></v-img>
                     </v-col>
                 </v-row>

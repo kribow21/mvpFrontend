@@ -1,5 +1,7 @@
 <template>
     <div>
+        <NavBar/>
+        <v-img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1173&q=80" height="250"/>
         <v-toolbar
             flat
             color="accent"
@@ -55,7 +57,9 @@
 <script>
 import axios from "axios";
 import cookies from "vue-cookies"
+import NavBar from './NavBar.vue';
     export default {
+    components: { NavBar },
         name : 'CalendarComp',
         mounted () {
             this.getMood();
