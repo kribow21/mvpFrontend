@@ -7,6 +7,8 @@ import Calendar from '../views/Calendar'
 import Images from '../views/Images'
 import Books from '../views/Books'
 import Benefits from '../views/Benefits'
+import EditorBooks from '../views/EditorBooks'
+import EditorImages from '../views/EditorImages'
 
 Vue.use(VueRouter)
 
@@ -45,6 +47,16 @@ const routes = [
     path: '/benefits',
     name: 'Benefits',
     component: Benefits
+  },
+  {
+    path: '/editorbooks',
+    name: 'EditorBooks',
+    component: EditorBooks
+  },
+  {
+    path: '/editorimages',
+    name: 'EditorImages',
+    component: EditorImages
   }
 ]
 

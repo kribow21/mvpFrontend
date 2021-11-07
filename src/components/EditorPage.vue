@@ -1,6 +1,7 @@
 <template>
     <div>
         <v-text-field
+        class="qInput"
         v-model="newQuote"
         label="quote"
         outlined
@@ -90,5 +91,8 @@ import EditorQuotes from './EditorQuotes.vue'
 sectio{
     width: 70vw;
     margin: 5vh
+}
+#qInput{
+    width: 60vw;
 }
 </style>
