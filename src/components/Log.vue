@@ -1,6 +1,6 @@
 <template>
     <main>
-        <NavBar/>
+        <NavBar2/>
         <v-container fluid>
                 <v-row>
                         <v-col cols="12">
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import NavBar from './NavBar.vue'
+import NavBar2 from './NavBar2.vue'
 import QuotePrompt from './QuotePrompt.vue'
 import axios from "axios";
 import cookies from "vue-cookies"
@@ -58,7 +58,7 @@ import EntryPost from './EntryPost.vue';
     export default {
         name : "Log",
     components: { 
-        NavBar,
+        NavBar2,
         QuotePrompt,
         MoodPicker,
         LogFooter,

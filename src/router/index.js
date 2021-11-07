@@ -4,6 +4,9 @@ import Home from '../views/Home.vue'
 import EditorDash from '../views/EditorDash.vue'
 import JournalLog from '../views/JournalLog.vue'
 import Calendar from '../views/Calendar' 
+import Images from '../views/Images'
+import Books from '../views/Books'
+import Benefits from '../views/Benefits'
 
 Vue.use(VueRouter)
 
@@ -28,16 +31,21 @@ const routes = [
     name: 'Calender',
     component: Calendar
   },
-  // {
-  //   path: '/inspiration',
-  //   name: 'Inspiration',
-  //   component: Inspiration
-  // },
-  // {
-  //   path: '/benefits',
-  //   name: 'Benefits',
-  //   component: Benefits
-  // }
+  {
+    path: '/images',
+    name: 'Images',
+    component: Images
+  },
+  {
+    path: '/books',
+    name: 'Books',
+    component: Books
+  },
+  {
+    path: '/benefits',
+    name: 'Benefits',
+    component: Benefits
+  }
 ]
 
 const router = new VueRouter({

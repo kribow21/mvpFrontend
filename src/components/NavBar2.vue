@@ -5,49 +5,87 @@
             dark
             rounded
             >
-            <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-                <v-list-item two-line>
-                <v-list-item-content>
-                    <v-list-item-subtitle>Logged In</v-list-item-subtitle>
-                    <v-list-item-title>{{firstName}}</v-list-item-title>
-                </v-list-item-content>
-                </v-list-item>
-                <v-list-item>
-                    <v-spacer></v-spacer>
-                    <v-icon> mdi-turtle</v-icon>
-                    <h2>Seas the Day</h2>
-                </v-list-item>
+        <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+            <v-list-item two-line>
+            <v-list-item-content>
+                <v-list-item-subtitle>Logged In</v-list-item-subtitle>
+                <v-list-item-title>{{firstName}}</v-list-item-title>
+            </v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+                <v-spacer></v-spacer>
+                <v-icon> mdi-turtle</v-icon>
+                <h2>Seas the Day</h2>
+            </v-list-item>
         </v-app-bar>
-
         <v-navigation-drawer
             color="primary"
             v-model="drawer"
             absolute
             temporary
     >
-                <v-list-item>
-                    <v-img
-                    max-height="150"
-                    max-width="150"
-                    src="../assets/seastheday.jpg"
-                    ></v-img>
-                </v-list-item>
-                <v-list dense>
-                <v-list-item
+            <v-list-item>
+                <v-img
+                max-height="150"
+                max-width="150"
+                src="../assets/seastheday.jpg"
+                ></v-img>
+            </v-list-item>
+        <v-list>
+        <v-list-item>
+            <v-list-item-icon>
+            <v-icon>mdi-text-box-plus-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>
+                <router-link to="/log">Log</router-link>
+            </v-list-item-title>
+        </v-list-item>
+        <v-list-item>
+            <v-list-item-icon>
+            <v-icon>mdi-calendar-range</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>
+                <router-link to="/calendar">Calendar</router-link>
+            </v-list-item-title>
+        </v-list-item>
+            <v-list-group
+            :value="false"
+            no-action
+            sub-group
+            >
+            <template v-slot:activator>
+            <v-list-item>
+                <v-list-item-icon>
+                <v-icon>mdi-lightbulb-outline</v-icon>
+                </v-list-item-icon>
+            <v-list-item-title>
+                Inspiration
+            </v-list-item-title>
+            </v-list-item>
+            </template>
+
+            <v-list-item
                 v-for="item in items"
                 :key="item.title"
                 :to="item.route"
-                >
+                link
+            >
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+
                 <v-list-item-icon>
-                    <v-icon>{{ item.icon }}</v-icon>
+                <v-icon>{{ item.icon }}</v-icon>
                 </v-list-item-icon>
-
-                <v-list-item-content>
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item-content>
-                </v-list-item>
-                </v-list>
-
+            </v-list-item>
+        </v-list-group>
+        <v-list-item>
+            <v-list-item-icon>
+            <v-icon>mdi-creation</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>
+                <router-link to="/benefits">Benefits</router-link>
+            </v-list-item-title>
+        </v-list-item>
+        </v-list>
                 <v-btn
                 plain
                 @click="logOutUser"
@@ -146,7 +184,7 @@
                     </v-form>
             <h3 id="failResponse"></h3>
             </v-overlay>
-            </v-navigation-drawer>
+    </v-navigation-drawer>
     </div>
 </template>
 
@@ -154,8 +192,10 @@
 import axios from "axios";
 import cookies from "vue-cookies"
     export default {
-        name : "NavBar",
-            data: () => ({
+        name : "NavBar2",
+        data() {
+        
+            return {
                 drawer: false,
                 group: null,
                 firstName : "",
@@ -166,16 +206,15 @@ import cookies from "vue-cookies"
                 delPassword : "",
                 fName : "",
                 items: [
-                { title: 'Log', icon: 'mdi-text-box-plus-outline',route: '/log' },
-                { title: 'Calendar', icon: 'mdi-calendar-range', route: '/calendar' },
-                { title: 'Inspiration', icon: 'mdi-lightbulb-outline', route: '/inspiration' },
-                { title: 'Mindful Benefits', icon: 'mdi-creation' }
+                { title: 'Images', icon: 'mdi-image-filter-none', route: '/images' },
+                { title: 'Books', icon: 'mdi-bookshelf', route: '/books' },
                 ]
-    }),
-                mounted () {
+            }
+        },
+        mounted () {
                 this.getUser();
             },
-            methods: {
+        methods: {
                 getUser() {
                     axios.request({
                     url : `${process.env.VUE_APP_BASE_DOMAIN}/api/users`,
@@ -261,10 +300,12 @@ import cookies from "vue-cookies"
                         document.getElementById('failResponse').innerText="Failed to delete profile"
                     })
                 },
-            },
+        },
     }
 </script>
 
 <style scoped>
-
+a{
+    color: black;
+}
 </style>
