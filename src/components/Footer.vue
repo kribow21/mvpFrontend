@@ -16,14 +16,25 @@
                 <v-spacer></v-spacer>
 
                 <v-btn
-                v-for="icon in icons"
-                :key="icon"
+                href='https://www.facebook.com'
+                target="_blank"
                 class="mx-4"
                 dark
                 icon
                 >
                 <v-icon size="24px">
-                    {{ icon }}
+                    mdi-facebook
+                </v-icon>
+                </v-btn>
+                <v-btn
+                href='https://www.twitter.com'
+                target="_blank"
+                class="mx-4"
+                dark
+                icon
+                >
+                <v-icon size="24px">
+                    mdi-twitter
                 </v-icon>
                 </v-btn>
             </v-card-title>
@@ -39,13 +50,6 @@
 <script>
     export default {
         name : "Footer",
-        data: () => ({
-            icons: [
-        'mdi-facebook',
-        'mdi-twitter',
-        'mdi-instagram',
-        ],
-    }),
     }
 </script>
 

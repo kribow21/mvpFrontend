@@ -1,14 +1,17 @@
 <template>
     <div>
         <CalendarComp/>
+        <Footer/>
     </div>
 </template>
 
 <script>
 import CalendarComp from '../components/CalendarComp.vue'
+import Footer from '../components/Footer.vue'
     export default {
     components: { 
-        CalendarComp 
+        CalendarComp,
+        Footer 
         },
         name : "Calendar"
     }
