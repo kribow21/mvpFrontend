@@ -55,6 +55,7 @@
                         </v-container>
                     </v-form>
                     <v-btn
+                        rounded
                         color="secondary"
                         @click="makeLoginRequest"
                         >

@@ -52,6 +52,7 @@
                     </v-col>
                 </v-form>
                 <v-btn
+                    rounded
                     color="secondary"
                     @click="makeSignupCall"
                     >
@@ -95,7 +96,7 @@ import cookies from "vue-cookies"
                     }).then((response) => {
                     cookies.set('loginToken', response.data.loginToken)
                     cookies.set('userId', response.data.userId);
-                    // this.$router.push('Log');
+                    this.$router.push('/log');
                     }).catch((error) => {
                     console.error("There was an error" +error);
                     document.getElementById('failResponse').innerText="Failed to signup"

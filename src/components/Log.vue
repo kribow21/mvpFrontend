@@ -5,6 +5,7 @@
                 <v-row>
                         <v-col cols="12">
                         <v-img
+                        id="mainImg"
                         alt="mindful quote"
                         src="../assets/journal.png"
                         height="450"
@@ -137,5 +138,7 @@ div{
 h1, h2{
 color: #A1887F;
 }
-
+#mainImg{
+    border-radius: 30px;
+}
 </style>

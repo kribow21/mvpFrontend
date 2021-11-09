@@ -16,6 +16,7 @@
             </v-card-text>
             <v-card-actions>
                 <v-btn
+                    rounded
                     text
                     color="primary"
                     @click="deleteEntry"
