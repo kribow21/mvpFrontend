@@ -1,6 +1,7 @@
 <template>
     <main>
         <NavBar2/>
+        <a id="top"></a>
         <v-container fluid>
                 <v-row>
                         <v-col cols="12">
@@ -43,6 +44,7 @@
                 :dateStamp="entry.dateStamp"
                 :userId="entry.userId"/>
             </v-row>
+            <a href="#top">Back to top</a>
         </v-container>
         <LogFooter/>
     </main>
@@ -102,7 +104,7 @@ import EntryPost from './EntryPost.vue';
         },
         //passes the date stamp to be inputed into the db with the post entry request
         userEntryDate(){
-            this.entryDate = new Date().toISOString().slice(0,10);
+            this.entryDate = new Date().toISOString();
             console.log(this.entryDate);
             return this.entryDate
         },
@@ -140,5 +142,8 @@ color: #A1887F;
 }
 #mainImg{
     border-radius: 30px;
+}
+#top{
+    scroll-behavior: smooth;
 }
 </style>

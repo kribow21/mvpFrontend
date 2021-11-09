@@ -2,7 +2,7 @@
     <div>
         <v-container>
                 <p>Limit 1 a day</p>
-            <v-row>
+            <v-row justify="center">
                 <h2>Would you like to check in on your mood?</h2>
                 <h1> {{userMood}}</h1>
                 <v-btn rounded color="secondary"
@@ -12,7 +12,7 @@
                 <p id="moodResp"></p>
             </v-row>
             <v-row>
-            <v-col @click="moodSelector('joyful')">
+            <v-col align="center" @click="moodSelector('joyful')">
                 <v-img
                 class="moodImg"
                     width="100"
@@ -20,7 +20,7 @@
                 </v-img>
                 <h3>Joyful</h3>
             </v-col>
-            <v-col @click="moodSelector('peaceful')">
+            <v-col align="center"  @click="moodSelector('peaceful')">
                 <v-img
                 class="moodImg"
                     width="100"
@@ -28,7 +28,7 @@
                 </v-img>
                 <h3>Peaceful</h3>
             </v-col>
-                <v-col @click="moodSelector('calm')">
+                <v-col align="center"  @click="moodSelector('calm')">
                 <v-img
                 class="moodImg"
                     width="100"
@@ -36,7 +36,7 @@
                 </v-img>
                 <h3>Calm</h3>
             </v-col>
-            <v-col @click="moodSelector('gloomy')">
+            <v-col align="center"  @click="moodSelector('gloomy')">
                 <v-img
                 class="moodImg"
                     width="100"
@@ -46,7 +46,7 @@
             </v-col>
             </v-row>
             <v-row>
-            <v-col @click="moodSelector('anxious')">
+            <v-col align="center"  @click="moodSelector('anxious')">
                 <v-img
                 class="moodImg"
                     width="100"
@@ -54,7 +54,7 @@
                 </v-img>
                 <h3>Anxious</h3>
             </v-col>
-            <v-col @click="moodSelector('frustrated')">
+            <v-col align="center"  @click="moodSelector('frustrated')">
                 <v-img
                 class="moodImg"
                     width="100"
@@ -62,7 +62,7 @@
                 </v-img>
                 <h3>Frustrated</h3>
             </v-col>
-                <v-col @click="moodSelector('sensitive')">
+                <v-col align="center"  @click="moodSelector('sensitive')">
                 <v-img
                 class="moodImg"
                     width="100"
@@ -70,7 +70,7 @@
                 </v-img>
                 <h3>Sensitive</h3>
             </v-col>
-            <v-col @click="moodSelector('annoyed')">
+            <v-col align="center"  @click="moodSelector('annoyed')">
                 <v-img
                 class="moodImg"
                     width="100"
@@ -131,8 +131,12 @@ import cookies from "vue-cookies"
 </script>
 
 <style scoped>
-h2, h3{
+h2{
 color: #A1887F;
+}
+h3{
+color: #A1887F;
+/* padding-left: px; */
 }
 h1{
     color: rgb(33, 47, 243);
@@ -146,5 +150,4 @@ div{
     border-radius: 5px;
     cursor: pointer
 }
-
 </style>

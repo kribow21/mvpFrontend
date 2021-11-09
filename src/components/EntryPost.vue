@@ -1,6 +1,7 @@
 <template>
     <section>
         <v-card
+            id="entryCard"
             class="mx-auto"
             max-width="100%"
             color="accent"
@@ -78,14 +79,13 @@ import cookies from "vue-cookies"
 </script>
 
 <style scoped>
-.v-card--reveal {
+#entryCard{
     bottom: 0;
     opacity: 1 !important;
-    position: absolute;
     width: 100%;
+    border-radius: 30px;
 }
 section{
     margin-bottom: 4vh;
 }
-
 </style>

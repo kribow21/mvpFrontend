@@ -1,8 +1,6 @@
 <template>
         <v-row>
         <v-col
-        v-for="n in 8"
-        :key="n"
         class="d-flex child-flex"
         cols="4"
         >
@@ -34,7 +32,7 @@
         props: {
             imageId : Number,
             imageURL : String
-        },
+        }
     }
 </script>
 
