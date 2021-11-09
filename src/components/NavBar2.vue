@@ -37,7 +37,7 @@
             <v-icon>mdi-text-box-plus-outline</v-icon>
             </v-list-item-icon>
             <v-list-item-title>
-                <router-link to="/log">Log</router-link>
+                <router-link class="navLinks" to="/log">Log</router-link>
             </v-list-item-title>
         </v-list-item>
         <v-list-item>
@@ -45,7 +45,7 @@
             <v-icon>mdi-calendar-range</v-icon>
             </v-list-item-icon>
             <v-list-item-title>
-                <router-link to="/calendar">Calendar</router-link>
+                <router-link class="navLinks" to="/calendar">Calendar</router-link>
             </v-list-item-title>
         </v-list-item>
             <v-list-group
@@ -82,7 +82,7 @@
             <v-icon>mdi-creation</v-icon>
             </v-list-item-icon>
             <v-list-item-title>
-                <router-link to="/benefits">Benefits</router-link>
+                <router-link class="navLinks" to="/benefits">Benefits</router-link>
             </v-list-item-title>
         </v-list-item>
         </v-list>
@@ -305,7 +305,7 @@ import cookies from "vue-cookies"
 </script>
 
 <style scoped>
-a{
+.navLinks{
     color: black;
 }
 </style>

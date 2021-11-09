@@ -1,16 +1,47 @@
 <template>
     <div>
         <v-container fluid>
-            <v-row>
-                <v-img src="https://lh6.googleusercontent.com/jteC_JceOvHNt29wT6sHU6sgUZJ_d52K3iZ21zgG5oYtjepaajWT9O5bVihlxlI_9pcZUbuii3b1uwWi_fxeVN70XgkNGAyzYp2z6S4lw0ICpuEojWxMlGYbNk_FORGbqOswPMp0"/>
-            </v-row>
+            <PostImageInspo
+            v-for="img in allImages"
+            v-bind:key="img.imageId"
+            :imageURL="img.imageURL"
+            :imageId="img.imageId"/>
         </v-container>
     </div> 
 </template>
 
 <script>
+import axios from "axios";
+import PostImageInspo from './PostImageInspo.vue';
     export default {
-        name : "ImageInspo"
+    components: { 
+        PostImageInspo
+        },
+        name : "ImageInspo",
+        data() {
+            return {
+                allImages: []
+            }
+        },
+        mounted () {
+            this.getAllImages();
+        },
+        methods: {
+            getAllImages() {
+                axios.request({
+                    url : `${process.env.VUE_APP_BASE_DOMAIN}/api/images`,
+                    method : "GET",
+                    headers : {
+                        'Content-Type': 'application/json'
+                    },
+                }).then((response) => {
+                        console.log(response)
+                        this.allImages = response.data
+                }).catch((error) => {
+                    console.error("There was an error" +error);
+                })
+            },
+        },
     }
 </script>
 
