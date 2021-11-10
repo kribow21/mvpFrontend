@@ -1,7 +1,7 @@
 <template>
     <div>
-        <v-container fluid>
-            <PostImageInspo
+        <v-container fluid id="imgCont">
+            <ImageInspoPost
             v-for="img in allImages"
             v-bind:key="img.imageId"
             :imageURL="img.imageURL"
@@ -12,10 +12,10 @@
 
 <script>
 import axios from "axios";
-import PostImageInspo from './PostImageInspo.vue';
+import ImageInspoPost from './ImageInspoPost.vue'
     export default {
     components: { 
-        PostImageInspo
+        ImageInspoPost
         },
         name : "ImageInspo",
         data() {
@@ -48,6 +48,8 @@ import PostImageInspo from './PostImageInspo.vue';
 <style scoped>
 div{
 background-image: linear-gradient(to top left, #86e9f7, #FFECB3);
-
+}
+#imgCont{
+    margin-left: 8vw;
 }
 </style>

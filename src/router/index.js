@@ -9,6 +9,8 @@ import Books from '../views/Books'
 import Benefits from '../views/Benefits'
 import EditorBooks from '../views/EditorBooks'
 import EditorImages from '../views/EditorImages'
+// import cookies from "vue-cookies"
+
 
 Vue.use(VueRouter)
 
@@ -26,7 +28,16 @@ const routes = [
   {
     path: '/log',
     name: 'JournalLog',
-    component: JournalLog
+    component: JournalLog,
+    // beforeEnter(to,from,next) {
+    //   if(cookies.get("loginToken") == !null){
+    //     next()
+    //   }else{
+    //     next({
+    //       name: "Home"
+    //     });
+    //   }
+    // },
   },
   {
     path: '/calendar',
@@ -57,11 +68,12 @@ const routes = [
     path: '/editorimages',
     name: 'EditorImages',
     component: EditorImages
-  }
+  },
 ]
 
 const router = new VueRouter({
   routes
 })
+
 
 export default router
