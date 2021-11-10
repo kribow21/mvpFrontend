@@ -16,7 +16,7 @@
             <v-row>
                 <QuotePrompt/>
             </v-row>
-            <v-row>
+            <v-row align="center"> 
                     <v-textarea
                         background-color="primary"
                         color="secondary"
@@ -25,6 +25,7 @@
                         counter="1000"
                         rounded
                     ></v-textarea>
+                <p id="errorResp"></p>
                 <v-btn rounded color="secondary"
                     @click="postEntry">
                     Submit entry
@@ -100,6 +101,8 @@ import EntryPost from './EntryPost.vue';
 
                 }).catch((error) => {
                     console.error("There was an error" +error);
+                    document.getElementById('errorResp').innerText="Oh no, exceeded entry character limit"
+
                 })
         },
         //passes the date stamp to be inputed into the db with the post entry request
@@ -133,7 +136,7 @@ import EntryPost from './EntryPost.vue';
 
 <style scoped>
 div{
-    background-image: linear-gradient(to top left, #86e9f7, #FFECB3);
+    background-image: linear-gradient(to bottom left, #86e9f7, #FFECB3);
     padding: 10px;
     justify-content: center;
 }
