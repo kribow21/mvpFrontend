@@ -1,5 +1,6 @@
 <template>
     <div>
+        <a id="top"></a>
         <v-container fluid id="imgCont">
             <ImageInspoPost
             v-for="img in allImages"
@@ -7,6 +8,7 @@
             :imageURL="img.imageURL"
             :imageId="img.imageId"/>
         </v-container>
+        <a href="#top">Back to top</a>
     </div> 
 </template>
 

@@ -43,7 +43,7 @@
                 <template v-slot:day="{date }">
                 <v-row justify="center">
                     <div v-if="mood[date]">
-                    <h2>{{mood[date]}}</h2>
+                    <h3>{{mood[date]}}</h3>
                     </div>
                 </v-row>
                 </template>
