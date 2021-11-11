@@ -12,7 +12,7 @@
                         <v-img src="../assets/seastheday.jpg" id="logo"></v-img>
                     </v-col>
                     <v-col>
-                        <h1>Lost at sea? Enjoy the waves as you type away whatevers on your mind in this beautiful mindful journal</h1>
+                        <h1>Lost at sea? Enjoy the waves as you type away whatever's on your mind in this beautiful mindful journal</h1>
                     </v-col>
                 </v-row>
             </v-container>
@@ -21,7 +21,7 @@
             <v-container>
                 <v-row>
                     <v-col>
-                    <h2>Digitize your private diary </h2>
+                    <h2>Digitize your Private Diary </h2>
                     <h4>Your private & secure journal - available 24/7 from any device</h4>
                     </v-col>
                 </v-row>
