@@ -45,90 +45,96 @@
                 plain
                 @click="logOutEditor"
                 >Log Out</v-btn>
-                <v-btn
-                plain
-                @click="overlay = !overlay"
+                <v-row
+                align="center"
+                justify="center">
+                <v-card
+                id="setCard"
+                height="450"
+                width="250"
+                color="primary"
                 >
-                Setting
-                </v-btn>
-            <v-overlay
-                :absolute="absolute"
-                :value="overlay"
-                opacity="1"
-                color="secondary"
-                >
-                <v-btn
-                    class="mx-2"
-                    fab
-                    small
-                    color="primary"
-                    @click="overlay = false"
-                    >
-                    <v-icon dark>
-                        mdi-close-outline
-                    </v-icon>
-                </v-btn>
-                    <v-form >
-                        <v-container>
-                        <v-col
-                        cols="12">
-                        </v-col>
-                    <p>Edit your profile settings:</p>
-                            <v-col
-                            cols="12"
-                            >
-                            <v-text-field
-                            v-model="eEmail"
-                            label="Email"
-                            outlined
-                            clearable
-                            ></v-text-field>
-                        </v-col>
-                        <v-col
-                            cols="12"
-                            >
-                            <v-text-field
-                            v-model="ePassword"
-                            label="Password"
-                            :type="'password'"
-                            outlined
-                            clearable
-                            ></v-text-field>
-                        </v-col>
-                        </v-container>
-                    </v-form>
+                    <v-row justify="center">
                     <v-btn
-                        color="secondary"
-                        @click="editEditor"
+                        plain
+                        class="mt-12"
+                        @click="overlay = !overlay"
                         >
+                        Settings
+                    </v-btn>
+
+                        <v-overlay
+                            :absolute="absolute"
+                            :opacity="1"
+                            :value="overlay"
+                            color="secondary">
+                        <v-btn
+                            class="mx-2"
+                            fab
+                            x-small
+                            color="primary"
+                            @click="overlay = false">
+                            <v-icon dark>
+                                mdi-close-outline
+                            </v-icon>
+                        </v-btn>
+                        <v-form >
+                            <v-container>
+                                <p>Edit your profile settings:</p>
+                                <v-row>
+                                    <v-text-field
+                                    v-model="eEmail"
+                                    label="Email"
+                                    outlined
+                                    clearable
+                                    ></v-text-field>
+                                </v-row>
+                                <v-row>
+                                    <v-text-field
+                                    v-model="ePassword"
+                                    label="Password"
+                                    :type="'password'"
+                                    outlined
+                                    clearable
+                                    ></v-text-field>
+                                </v-row>
+                            </v-container>
+                        </v-form>
+                    <v-btn
+                    small
+                    rounded
+                    color="secondary"
+                    @click="editEditor">
                         Submit 
                     </v-btn>
                     <h3 id="failResponse"></h3>
                     <h3 id="confirmResponse"></h3>
-                    <v-form>
-                        <v-container>
-                            <v-col
-                            cols="12"
-                            >
-                            <p>To delete your profile enter your password:</p>
-                            <v-text-field
-                            v-model="delPassword"
-                            label="Password"
-                            :type="'password'"
-                            outlined
-                            clearable
-                            ></v-text-field>
-                            </v-col>
-                        </v-container>
-                    <v-btn
-                    @click="deleteEditor"
-                        color="secondary"
-                        >
-                        Delete Profile
-                    </v-btn>
-                    </v-form>
-            <h3 id="failResponse"></h3>
-            </v-overlay>
+                            <v-form>
+                                <v-container>
+                                    <v-row>
+                                        <p>To delete your profile enter your password:</p>
+                                        <v-text-field
+                                        v-model="delPassword"
+                                        label="Password"
+                                        :type="'password'"
+                                        outlined
+                                        clearable
+                                        ></v-text-field>
+                                    </v-row>
+                                </v-container>
+                                <v-btn
+                                small
+                                rounded
+                                @click="deleteEditor"
+                                color="secondary">
+                                    Delete Profile
+                                </v-btn>
+                            </v-form>
+                            <h3 id="failResponse"></h3>
+                        </v-overlay>
+                    </v-row>
+                </v-card>
+            </v-row>
             </v-navigation-drawer>
     </div>
 </template>
@@ -224,5 +230,7 @@ import cookies from "vue-cookies"
 </script>
 
 <style scoped>
-
+#setCard{
+    margin-top: 15px;
+}
 </style>
