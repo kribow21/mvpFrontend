@@ -43,7 +43,7 @@
                 <template v-slot:day="{date }">
                 <v-row justify="center">
                     <div v-if="mood[date]">
-                    <h3>{{mood[date]}}</h3>
+                    <h3 id="dayText">{{mood[date]}}</h3>
                     </div>
                 </v-row>
                 </template>
@@ -108,5 +108,8 @@ import NavBar2 from './NavBar2.vue';
 </script>
 
 <style scoped>
-
+#dayText{
+    margin-top: 10px;
+    color: #f0cb5e;
+}
 </style>

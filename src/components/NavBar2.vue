@@ -14,7 +14,7 @@
             <v-list-item>
                 <v-spacer></v-spacer>
                 <v-icon> mdi-turtle</v-icon>
-                <h2>Seas the Day</h2>
+                <h3>Seas the Day</h3>
             </v-list-item>
         </v-app-bar>
         <v-navigation-drawer
