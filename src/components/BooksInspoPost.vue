@@ -1,14 +1,15 @@
 <template>
     <v-carousel-item id="bookItem">
         <v-card
+            id="card"
             class="mx-auto"
-            width="350">
-            <v-card-text>
+            width="400">
+            <v-card-text >
                 <h1>
-                    Title :{{title}}
+                    Title: {{title}}
                 </h1>
                 <v-img :src="imageURL"  height="300"></v-img>
-                <h2>Author :{{author}}</h2>
+                <h2>Author: {{author}}</h2>
                 <a :href="shopURL" target="_blank">Buy Here</a>
             </v-card-text>
         </v-card>
@@ -29,5 +30,12 @@
 </script>
 
 <style scoped>
-
+h1, h2{
+color: #A1887F;
+padding: 10px;
+margin-left: 4vw;
+}
+#card{
+    border-radius: 30px;
+}
 </style>
