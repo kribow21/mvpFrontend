@@ -1,14 +1,13 @@
 <template>
     <div>
-        <a id="top"></a>
-        <v-container fluid id="imgCont">
+        <h1>Get Inspired</h1>
+        <v-carousel hide-delimiters height="70vh">
             <ImageInspoPost
             v-for="img in allImages"
             v-bind:key="img.imageId"
             :imageURL="img.imageURL"
             :imageId="img.imageId"/>
-        </v-container>
-        <a href="#top">Back to top</a>
+        </v-carousel>
     </div> 
 </template>
 
@@ -50,8 +49,12 @@ import ImageInspoPost from './ImageInspoPost.vue'
 <style scoped>
 div{
 background-image: linear-gradient(to top left, #86e9f7, #FFECB3);
+height: 100vh;
 }
-#imgCont{
-    margin-left: 8vw;
+h1{
+display: grid;
+justify-content: center;
+padding: 20px;
+color: #A1887F;
 }
 </style>

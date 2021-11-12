@@ -1,12 +1,10 @@
 <template>
-    <div>
+    <v-carousel-item>
         <v-img
-            id="inspoImgs"
-            :src="imageURL"
-            class="grey lighten-2"
-        >
+        id="inspoImgs"
+        :src="imageURL">
         </v-img>
-    </div>
+    </v-carousel-item>
 </template>
 
 <script>
@@ -21,8 +19,8 @@
 
 <style scoped>
 #inspoImgs{
-    margin-bottom: 2vh;
     border-radius: 30px;
-    width: 80vw;
+    width: 70vw;
+    margin-left: 15vw;
 }
 </style>
