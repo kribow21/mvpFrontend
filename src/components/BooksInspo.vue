@@ -7,7 +7,8 @@
             :imageURL="book.imageURL"
             :title="book.title"
             :author="book.author"
-            :bookId="book.bookId"/>
+            :bookId="book.bookId"
+            :shopURL="book.shopURL"/>
         </v-carousel>
     </div>
 </template>
@@ -45,10 +46,9 @@ import BooksInspoPost from './BooksInspoPost.vue'
     }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 div{
     background-image: linear-gradient(to bottom left, #86e9f7, #FFECB3);
     height: 100vh;
-    padding-top: 2vh;
 }
 </style>

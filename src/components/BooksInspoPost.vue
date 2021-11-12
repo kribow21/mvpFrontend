@@ -1,24 +1,16 @@
 <template>
-    <v-carousel-item>
+    <v-carousel-item id="bookItem">
         <v-card
             class="mx-auto"
             width="350">
             <v-card-text>
-                <p class="text-h5 text--primary">
-                    {{title}}
-                </p>
+                <h1>
+                    Title :{{title}}
+                </h1>
                 <v-img :src="imageURL"  height="300"></v-img>
-                <h2>{{author}}</h2>
+                <h2>Author :{{author}}</h2>
+                <a :href="shopURL" target="_blank">Buy Here</a>
             </v-card-text>
-            <v-card-actions>
-                <v-list-item class="grow">
-                <v-row
-                    align="center" 
-                    justify="end"
-                >
-                </v-row>
-                </v-list-item>
-            </v-card-actions>
         </v-card>
     </v-carousel-item>
 </template>
@@ -36,6 +28,6 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
