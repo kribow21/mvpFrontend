@@ -13,8 +13,14 @@
                         ></v-img>
                     </v-col>
                 </v-row>
+                <v-row>
+                    <v-btn color="secondary" rounded @click="getQuote">
+                    Click for a reflection prompt
+                </v-btn>
+                </v-row>
             <v-row>
-                <QuotePrompt/>
+                <QuotePrompt
+                :content="quote"/>
             </v-row>
             <v-row align="center"> 
                     <v-textarea
@@ -73,7 +79,8 @@ import EntryPost from './EntryPost.vue';
             entry : "",
             myQuotes: [],
             entryDate : "",
-            myEntries : []
+            myEntries : [],
+            quote : ""
         }
     },
     mounted () {
@@ -130,6 +137,28 @@ import EntryPost from './EntryPost.vue';
                     console.error("There was an error" +error);
                 })
         },
+            getQuote() {
+                axios.request({
+                    url : `${process.env.VUE_APP_BASE_DOMAIN}/api/quotes`,
+                        method : "GET",
+                        headers : {
+                            'Content-Type': 'application/json'
+                        },
+                        params : {
+                            quoteId : this.quoteGenerator()
+                        }
+                    }).then((response) => {
+                        console.log(response)
+                        this.quote = response.data.content
+
+
+                    }).catch((error) => {
+                        console.error("There was an error" +error);
+                    })
+            },
+        quoteGenerator(){
+            return Math.floor(Math.random() * 30 + 1)
+        }
     },
     }
 </script>
