@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h1>Have 30 Prompts Available</h1>
         <v-text-field
         class="qInput"
         v-model="newQuote"

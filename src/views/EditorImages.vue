@@ -1,6 +1,7 @@
 <template>
     <div>
         <EditorNav/>
+        <h1>Have 8 Images Available</h1>
         <PostEditorImages/>
     </div>
 </template>
