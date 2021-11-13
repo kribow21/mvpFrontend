@@ -37,7 +37,6 @@ import BooksInspoPost from './BooksInspoPost.vue'
                         'Content-Type': 'application/json'
                     },
                 }).then((response) => {
-                        console.log(response)
                         this.allBooks = response.data
                 }).catch((error) => {
                     console.error("There was an error" +error);

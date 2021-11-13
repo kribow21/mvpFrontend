@@ -37,7 +37,6 @@ import ImageInspoPost from './ImageInspoPost.vue'
                         'Content-Type': 'application/json'
                     },
                 }).then((response) => {
-                    console.log(response)
                     this.allImages = response.data
                 }).catch(() => {
                     document.getElementById('failResponse').innerText="Oh No, image loader hit an unexpected interuption"
