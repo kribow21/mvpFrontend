@@ -44,6 +44,7 @@
                         <v-text-field
                             label="First Name"
                             v-model="firstName"
+                            hint="15 character limit"
                             outlined
                             clearable
                         ></v-text-field>

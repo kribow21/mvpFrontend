@@ -127,6 +127,7 @@
                                     <v-text-field
                                     v-model="userEmail"
                                     label="Email"
+                                    :rules="emailRules"
                                     outlined
                                     clearable
                                     ></v-text-field>
@@ -136,6 +137,8 @@
                                     v-model="userPassword"
                                     label="Password"
                                     :type="'password'"
+                                    :rules="[passwordRules.min]"
+                                    hint="At least 8 characters"
                                     outlined
                                     clearable
                                     ></v-text-field>
@@ -200,7 +203,13 @@ import cookies from "vue-cookies"
                 items: [
                 { title: 'Images', icon: 'mdi-image-filter-none', route: '/images' },
                 { title: 'Books', icon: 'mdi-bookshelf', route: '/books' },
-                ]
+                ],
+                emailRules: [
+                v => /.+@.+/.test(v) || 'E-mail must be valid',
+                ],
+                passwordRules : {
+                    min: v => v.length >= 8 || 'Min 8 characters',
+                }
             }
         },
         mounted () {
