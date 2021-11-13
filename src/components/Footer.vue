@@ -2,7 +2,7 @@
     <div>
         <v-footer
         dark
-        padles>
+        padless>
             <v-card
             class="flex"
             flat

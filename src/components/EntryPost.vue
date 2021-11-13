@@ -66,7 +66,7 @@ import cookies from "vue-cookies"
                 }
             }).then((response) => {
                 console.log(response)
-                this.$emit('UpdateLog');
+                this.$emit('updateLog');
 
             }).catch(() => {
                 document.getElementById('failResponse').innerText="Oh No, something went wrong deleting your entry"

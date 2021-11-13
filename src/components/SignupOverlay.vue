@@ -36,6 +36,8 @@
                             label="Password"
                             v-model="userPassword"
                             :type="'password'"
+                            :rules="[passwordRules.min]"
+                            hint="At least 8 characters"
                             outlined
                             clearable
                         ></v-text-field>
@@ -70,8 +72,11 @@ import cookies from "vue-cookies"
             userPassword : "",
             firstName : "",
             emailRules: [
-                    v => /.+@.+/.test(v) || 'E-mail must be valid',
-        ],
+                v => /.+@.+/.test(v) || 'E-mail must be valid',
+            ],
+            passwordRules : {
+                min: v => v.length >= 8 || 'Min 8 characters',
+            }
         }
         },
         methods: {
