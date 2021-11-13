@@ -5,26 +5,6 @@
         <v-toolbar
         flat
         color="accent">
-            <v-btn
-            fab
-            text
-            small
-            color="blue darken-2"
-            @click="prev">
-            <v-icon small>
-                mdi-chevron-left
-            </v-icon>
-            </v-btn>
-            <v-btn
-            fab
-            text
-            small
-            color="blue darken-2"
-            @click="next">
-                <v-icon small>
-                    mdi-chevron-right
-                </v-icon>
-            </v-btn>
             <v-toolbar-title v-if="$refs.calendar">
                 {{ $refs.calendar.title }}
             </v-toolbar-title>
@@ -92,7 +72,6 @@ import NavBar2 from './NavBar2.vue';
                             "userId" : cookies.get("userId"),
                         }
                     }).then((response) => {
-                        console.log(response)
                         this.mood = response.data
 
                     }).catch((error) => {
