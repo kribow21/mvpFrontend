@@ -227,7 +227,6 @@ import cookies from "vue-cookies"
                             userId : cookies.get('userId')
                         }
                     }).then((response) => {
-                        console.log(response)
                         this.firstName = response.data.firstName;
                         //passes to data to use in template
 
