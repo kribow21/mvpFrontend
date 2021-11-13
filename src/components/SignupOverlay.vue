@@ -4,58 +4,53 @@
         elevation="10"
         rounded
         color="secondary"
-        @click="overlay = !overlay"
-        >
+        @click="overlay = !overlay">
         Sign Up
         </v-btn>
             <v-overlay
-                :absolute="absolute"
-                :value="overlay"
-                opacity="1"
-                color="secondary"
-                >
+            :absolute="absolute"
+            :value="overlay"
+            opacity="1"
+            color="secondary">
                 <v-btn
-                    class="mx-2"
-                    fab
-                    small
-                    color="primary"
-                    @click="overlay = false"
-                    >
+                class="mx-2"
+                fab
+                small
+                color="primary"
+                @click="overlay = false">
                     <v-icon dark>
                         mdi-close-outline
                     </v-icon>
                 </v-btn>
                 <v-form >
                     <v-col
-                        cols="12"
-                    >
-                    <v-text-field
-                        label="Email"
-                        v-model="userEmail"
-                        :rules="emailRules"
-                        outlined
-                        clearable
-                    ></v-text-field>
-                    <v-text-field
-                        label="Password"
-                        v-model="userPassword"
-                        :type="'password'"
-                        outlined
-                        clearable
-                    ></v-text-field>
-                    <v-text-field
-                        label="First Name"
-                        v-model="firstName"
-                        outlined
-                        clearable
-                    ></v-text-field>
+                    cols="12">
+                        <v-text-field
+                            label="Email"
+                            v-model="userEmail"
+                            :rules="emailRules"
+                            outlined
+                            clearable
+                        ></v-text-field>
+                        <v-text-field
+                            label="Password"
+                            v-model="userPassword"
+                            :type="'password'"
+                            outlined
+                            clearable
+                        ></v-text-field>
+                        <v-text-field
+                            label="First Name"
+                            v-model="firstName"
+                            outlined
+                            clearable
+                        ></v-text-field>
                     </v-col>
                 </v-form>
                 <v-btn
-                    rounded
-                    color="secondary"
-                    @click="makeSignupCall"
-                    >
+                rounded
+                color="secondary"
+                @click="makeSignupCall">
                     Login 
                 </v-btn>
             </v-overlay>

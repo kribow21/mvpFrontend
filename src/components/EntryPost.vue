@@ -1,29 +1,28 @@
 <template>
     <section>
+        <!--Users view of their entries. can only delete -->
         <v-card
-            id="entryCard"
-            class="mx-auto"
-            max-width="100%"
-            color="accent"
-            
-        >
+        id="entryCard"
+        class="mx-auto"
+        max-width="100%"
+        color="accent">
             <v-card-text>
-            <p class="text-h4 text--secondary">
-                {{dateOfWeek}}
-            </p>
-            <div class="text--primary">
-                {{content}} 
-            </div>
+                <p class="text-h4 text--secondary">
+                    {{dateOfWeek}}
+                </p>
+                <div class="text--primary">
+                    {{content}} 
+                </div>
             </v-card-text>
             <v-card-actions>
                 <v-btn
-                    rounded
-                    text
-                    color="primary"
-                    @click="deleteEntry"
-                >
+                rounded
+                text
+                color="primary"
+                @click="deleteEntry">
                     Delete Entry
                 </v-btn>
+            <h3 id="failResponse"></h3>
             </v-card-actions>
         </v-card>
     </section>
@@ -69,9 +68,8 @@ import cookies from "vue-cookies"
                 console.log(response)
                 this.$emit('UpdateLog');
 
-                
-            }).catch((error) => {
-                console.error("There was an error" +error);
+            }).catch(() => {
+                document.getElementById('failResponse').innerText="Oh No, something went wrong deleting your entry"
             })
             },
     },

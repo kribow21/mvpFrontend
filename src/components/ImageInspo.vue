@@ -8,6 +8,7 @@
             :imageURL="img.imageURL"
             :imageId="img.imageId"/>
         </v-carousel>
+        <h3 id="failResponse"></h3>
     </div> 
 </template>
 
@@ -36,10 +37,10 @@ import ImageInspoPost from './ImageInspoPost.vue'
                         'Content-Type': 'application/json'
                     },
                 }).then((response) => {
-                        console.log(response)
-                        this.allImages = response.data
-                }).catch((error) => {
-                    console.error("There was an error" +error);
+                    console.log(response)
+                    this.allImages = response.data
+                }).catch(() => {
+                    document.getElementById('failResponse').innerText="Oh No, image loader hit an unexpected interuption"
                 })
             },
         },

@@ -6,28 +6,26 @@
             dark
             max-width="40%">
         <v-img :src="imageURL"></v-img>
-        <v-card-actions>
-        <v-list-item class="grow">
-            <v-row
-                align="center" 
-                justify="end"
-            >
-            <v-btn
-            @click="deleteImage"
-                class="mx-2"
-                fab
-                dark
-                small
-                color="primary"
-            >
-                <v-icon dark>
-                    mdi-delete
-                </v-icon>
-            </v-btn>
-            </v-row>
-        </v-list-item>
-        </v-card-actions>
-    </v-card>
+            <v-card-actions>
+                <v-list-item class="grow">
+                    <v-row
+                    align="center" 
+                    justify="end">
+                        <v-btn
+                        @click="deleteImage"
+                        class="mx-2"
+                        fab
+                        dark
+                        small
+                        color="primary">
+                            <v-icon dark>
+                                mdi-delete
+                            </v-icon>
+                        </v-btn>
+                    </v-row>
+                </v-list-item>
+            </v-card-actions>
+        </v-card>
     </div>
 </template>
 

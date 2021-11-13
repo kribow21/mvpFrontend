@@ -9,11 +9,11 @@
         clearable
         ></v-text-field>
         <v-btn
-            color="secondary"
-            @click="postQuote"
-            >
+        color="secondary"
+        @click="postQuote">
             Submit 
         </v-btn>
+        <h3 id="failResponse"></h3>
         <EditorQuotes 
         @UpdateEditorPage="getQuotes"
         v-for="quote in allQuotes"
@@ -53,12 +53,12 @@ import EditorQuotes from './EditorQuotes.vue'
                         editorToken : cookies.get("editorToken"),
                         content : this.newQuote
                     }
-                }).then((response) => {
-                    console.log(response);
+                }).then(() => {
+                    this.getQuotes();
 
                 }).catch((error) => {
                     console.error("There was an error" +error);
-                    document.getElementById('failResponse').innerText="Failed to login"
+                    document.getElementById('failResponse').innerText="Failed to Post"
                 })
             },
             getQuotes() {
@@ -69,21 +69,11 @@ import EditorQuotes from './EditorQuotes.vue'
                         'Content-Type': 'application/json'
                     },
                 }).then((response) => {
-                        this.allQuotes = response.data.sort(this.compareTimes)
+                        this.allQuotes = response.data
                 }).catch((error) => {
                     console.error("There was an error" +error);
                 })
             },
-                    //used to sort the quotes to show newest to oldest
-            compareTimes(a,b){
-                if(a.createdAt > b.createdAt){
-                    return -1;
-                    //if -1 is returned a is newest
-                }else if (a.createdAt < b.createdAt){
-                    //if 1 is returned a is oldest
-                    return 1
-                }
-            }
         },
     }
 </script>

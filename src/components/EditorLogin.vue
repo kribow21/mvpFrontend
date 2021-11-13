@@ -5,54 +5,48 @@
         text
         rounded
         class="my-2"
-        @click="overlay = !overlay"
-        >
+        @click="overlay = !overlay">
         Editor Login
         </v-btn>
             <v-overlay
                 :absolute="absolute"
                 :value="overlay"
                 opacity="1"
-                color="secondary"
-                >
+                color="secondary">
                 <v-btn
                     class="mx-2"
                     fab
                     small
                     color="primary"
-                    @click="overlay = false"
-                    >
+                    @click="overlay = false">
                     <v-icon dark>
                         mdi-close-outline
                     </v-icon>
                 </v-btn>
                     <v-form >
                         <v-container>
-                        <v-col
-                        cols="12">
-                        </v-col>
                             <v-col
-                            cols="12"
-                            >
-                            <v-text-field
-                            v-model="editorEmail"
-                            label="Email"
-                            outlined
-                            clearable
-                            ></v-text-field>
-                        </v-col>
-                        <v-col
-                            cols="12"
-
-                            >
-                            <v-text-field
-                            v-model="editorPassword"
-                            label="Password"
-                            :type="'password'"
-                            outlined
-                            clearable
-                            ></v-text-field>
-                        </v-col>
+                            cols="12">
+                            </v-col>
+                            <v-col
+                            cols="12">
+                                <v-text-field
+                                v-model="editorEmail"
+                                label="Email"
+                                outlined
+                                clearable
+                                ></v-text-field>
+                            </v-col>
+                            <v-col
+                            cols="12">
+                                <v-text-field
+                                v-model="editorPassword"
+                                label="Password"
+                                :type="'password'"
+                                outlined
+                                clearable
+                                ></v-text-field>
+                            </v-col>
                         </v-container>
                     </v-form>
                     <v-btn
@@ -62,7 +56,7 @@
                         >
                         Login 
                     </v-btn>
-            <h3 id="failResponse"></h3>
+                <h3 id="failResponse"></h3>
             </v-overlay>
     </div>
 </template>

@@ -4,23 +4,20 @@
         elevation="10"
         rounded
         color="secondary"
-        @click="overlay = !overlay"
-        >
+        @click="overlay = !overlay">
         Login
         </v-btn>
             <v-overlay
-                :absolute="absolute"
-                :value="overlay"
-                opacity="1"
-                color="secondary"
-                >
+            :absolute="absolute"
+            :value="overlay"
+            opacity="1"
+            color="secondary">
                 <v-btn
-                    class="mx-2"
-                    fab
-                    small
-                    color="primary"
-                    @click="overlay = false"
-                    >
+                class="mx-2"
+                fab
+                small
+                color="primary"
+                @click="overlay = false">
                     <v-icon dark>
                         mdi-close-outline
                     </v-icon>
@@ -30,9 +27,8 @@
                         <v-col
                         cols="12">
                         </v-col>
-                            <v-col
-                            cols="12"
-                            >
+                        <v-col
+                        cols="12">
                             <v-text-field
                             v-model="userEmail"
                             label="Email"
@@ -41,9 +37,7 @@
                             ></v-text-field>
                         </v-col>
                         <v-col
-                            cols="12"
-
-                            >
+                        cols="12">
                             <v-text-field
                             v-model="userPassword"
                             label="Password"
@@ -55,10 +49,9 @@
                         </v-container>
                     </v-form>
                     <v-btn
-                        rounded
-                        color="secondary"
-                        @click="makeLoginRequest"
-                        >
+                    rounded
+                    color="secondary"
+                    @click="makeLoginRequest">
                         Login 
                     </v-btn>
             <h3 id="failResponse"></h3>
@@ -80,28 +73,27 @@ import cookies from "vue-cookies"
         }
         },
             methods : {
-                    makeLoginRequest : function() {
-                    axios.request({
-                    url : `${process.env.VUE_APP_BASE_DOMAIN}/api/userlogin`,
-                    method : "POST",
-                    headers : {
-                        'Content-Type': 'application/json'
-                    },
-                    data : {
-                        email : this.userEmail,
-                        password : this.userPassword,
-                    }
+                makeLoginRequest : function() {
+                axios.request({
+                url : `${process.env.VUE_APP_BASE_DOMAIN}/api/userlogin`,
+                method : "POST",
+                headers : {
+                    'Content-Type': 'application/json'
+                },
+                data : {
+                    email : this.userEmail,
+                    password : this.userPassword,
+                }
                 }).then((response) => {
-                    console.log(response);
                     cookies.set('loginToken', response.data.loginToken);
                     cookies.set('userId', response.data.userId);
                     this.$router.push('/log');
 
                 }).catch((error) => {
                     console.error("There was an error" +error);
-                    document.getElementById('failResponse').innerText="Failed to login"
+                    document.getElementById('failResponse').innerText="Oh No, Failed to login"
                 })
-            }
+                }
             
         }
     }

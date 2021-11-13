@@ -3,37 +3,38 @@
         <NavBar2/>
         <a id="top"></a>
         <v-container fluid>
-                <v-row>
-                        <v-col cols="12">
-                        <v-img
-                        id="mainImg"
-                        alt="mindful quote"
-                        src="../assets/journal.png"
-                        height="450"
-                        ></v-img>
-                    </v-col>
-                </v-row>
-                <v-row>
-                    <v-btn color="secondary" rounded @click="getQuote">
-                    Click for a reflection prompt
-                </v-btn>
-                </v-row>
+            <v-row>
+                    <v-col cols="12">
+                    <v-img
+                    id="mainImg"
+                    alt="mindful quote"
+                    src="../assets/journal.png"
+                    height="450"
+                    ></v-img>
+                </v-col>
+            </v-row>
+            <v-row>
+                <v-btn color="secondary" rounded @click="getQuote">
+                Click for a reflection prompt
+            </v-btn>
+            <h3 id="failResp"></h3>
+            </v-row>
             <v-row>
                 <QuotePrompt
                 :content="quote"/>
             </v-row>
             <v-row align="center"> 
-                    <v-textarea
-                        background-color="primary"
-                        color="secondary"
-                        v-model="entry"
-                        label="Keep calm and type on..."
-                        counter="1000"
-                        rounded
-                    ></v-textarea>
+                <v-textarea
+                    background-color="primary"
+                    color="secondary"
+                    v-model="entry"
+                    label="Keep calm and type on..."
+                    counter="1000"
+                    rounded
+                ></v-textarea>
                 <p id="errorResp"></p>
                 <v-btn rounded color="secondary"
-                    @click="postEntry">
+                @click="postEntry">
                     Submit entry
                 </v-btn>
             </v-row>
@@ -42,6 +43,7 @@
             </v-row>
             <v-row>
                 <h1>Your Previous Entries:</h1>
+                <h3 id="failResponse"></h3>
                 <EntryPost
                 @updateLog="getEntry"
                 v-for="entry in myEntries"
@@ -103,13 +105,9 @@ import EntryPost from './EntryPost.vue';
                     console.log(response)
                     this.myQuotes = response.data
                     this.getEntry()
-
-
-
                 }).catch((error) => {
                     console.error("There was an error" +error);
                     document.getElementById('errorResp').innerText="Oh no, exceeded entry character limit"
-
                 })
         },
         //passes the date stamp to be inputed into the db with the post entry request
@@ -129,12 +127,10 @@ import EntryPost from './EntryPost.vue';
                         "userId" : cookies.get("userId"),
                     }
                 }).then((response) => {
-                    console.log(response)
                     this.myEntries = response.data
-
-
                 }).catch((error) => {
                     console.error("There was an error" +error);
+                    document.getElementById('failResponse').innerText="Oh No, something went wrong fetching your entries"
                 })
         },
             getQuote() {
@@ -154,6 +150,8 @@ import EntryPost from './EntryPost.vue';
 
                     }).catch((error) => {
                         console.error("There was an error" +error);
+                        document.getElementById('failResp').innerText="Oh No, something went wrong fetching a reflection prompt"
+
                     })
             },
         quoteGenerator(){

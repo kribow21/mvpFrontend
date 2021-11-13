@@ -19,6 +19,7 @@
         v-bind:key="img.imageId"
         :imageURL="img.imageURL"
         :imageId="img.imageId"/>
+        <h3 id="failResponse"></h3>
     </div>
 </template>
 
@@ -52,13 +53,12 @@ import ViewEditorImages from './ViewEditorImages.vue';
                         editorToken : cookies.get("editorToken"),
                         imageURL : this.newImage
                     }
-                }).then((response) => {
-                    console.log(response);
+                }).then(() => {
                     this.getImages()
 
                 }).catch((error) => {
                     console.error("There was an error" +error);
-                    document.getElementById('failResponse').innerText="Failed to login"
+                    document.getElementById('failResponse').innerText="Failed to post image"
                 })
             },
             getImages() {
@@ -69,10 +69,10 @@ import ViewEditorImages from './ViewEditorImages.vue';
                         'Content-Type': 'application/json'
                     },
                 }).then((response) => {
-                        console.log(response)
                         this.allImages = response.data
                 }).catch((error) => {
                     console.error("There was an error" +error);
+                    document.getElementById('failResponse').innerText="Failed to get images"
                 })
             },
         },

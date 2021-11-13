@@ -12,72 +12,72 @@
                 <p id="moodResp"></p>
             </v-row>
             <v-row>
-            <v-col align="center" @click="moodSelector('joyful')">
-                <v-img
-                class="moodImg"
-                    width="100"
-                    src="../assets/mostly-sunny.png">
-                </v-img>
-                <h3>Joyful</h3>
-            </v-col>
-            <v-col align="center"  @click="moodSelector('peaceful')">
-                <v-img
-                class="moodImg"
-                    width="100"
-                    src="../assets/peace.png">
-                </v-img>
-                <h3>Peaceful</h3>
-            </v-col>
-                <v-col align="center"  @click="moodSelector('calm')">
-                <v-img
-                class="moodImg"
-                    width="100"
-                    src="../assets/sea.png">
-                </v-img>
-                <h3>Calm</h3>
-            </v-col>
-            <v-col align="center"  @click="moodSelector('gloomy')">
-                <v-img
-                class="moodImg"
-                    width="100"
-                    src="../assets/cloudy-day.png">
-                </v-img>
-                <h3>Gloomy</h3>
-            </v-col>
-            </v-row>
-            <v-row>
-            <v-col align="center"  @click="moodSelector('anxious')">
-                <v-img
-                class="moodImg"
-                    width="100"
-                    src="../assets/rainy.png">
-                </v-img>
-                <h3>Anxious</h3>
-            </v-col>
-            <v-col align="center"  @click="moodSelector('frustrated')">
-                <v-img
-                class="moodImg"
-                    width="100"
-                    src="../assets/storm2.png">
-                </v-img>
-                <h3>Frustrated</h3>
-            </v-col>
-                <v-col align="center"  @click="moodSelector('sensitive')">
-                <v-img
-                class="moodImg"
-                    width="100"
-                    src="../assets/rainy2.png">
-                </v-img>
-                <h3>Sensitive</h3>
-            </v-col>
-            <v-col align="center"  @click="moodSelector('annoyed')">
-                <v-img
-                class="moodImg"
-                    width="100"
-                    src="../assets/storm.png">
-                </v-img>
-                <h3>Annoyed</h3>
-            </v-col>
+                <v-col align="center" @click="moodSelector('joyful')">
+                    <v-img
+                    class="moodImg"
+                        width="100"
+                        src="../assets/mostly-sunny.png">
+                    </v-img>
+                    <h3>Joyful</h3>
+                </v-col>
+                <v-col align="center"  @click="moodSelector('peaceful')">
+                    <v-img
+                    class="moodImg"
+                        width="100"
+                        src="../assets/peace.png">
+                    </v-img>
+                    <h3>Peaceful</h3>
+                </v-col>
+                    <v-col align="center"  @click="moodSelector('calm')">
+                    <v-img
+                    class="moodImg"
+                        width="100"
+                        src="../assets/sea.png">
+                    </v-img>
+                    <h3>Calm</h3>
+                </v-col>
+                <v-col align="center"  @click="moodSelector('gloomy')">
+                    <v-img
+                    class="moodImg"
+                        width="100"
+                        src="../assets/cloudy-day.png">
+                    </v-img>
+                    <h3>Gloomy</h3>
+                </v-col>
+                </v-row>
+                <v-row>
+                <v-col align="center"  @click="moodSelector('anxious')">
+                    <v-img
+                    class="moodImg"
+                        width="100"
+                        src="../assets/rainy.png">
+                    </v-img>
+                    <h3>Anxious</h3>
+                </v-col>
+                <v-col align="center"  @click="moodSelector('frustrated')">
+                    <v-img
+                    class="moodImg"
+                        width="100"
+                        src="../assets/storm2.png">
+                    </v-img>
+                    <h3>Frustrated</h3>
+                </v-col>
+                    <v-col align="center"  @click="moodSelector('sensitive')">
+                    <v-img
+                    class="moodImg"
+                        width="100"
+                        src="../assets/rainy2.png">
+                    </v-img>
+                    <h3>Sensitive</h3>
+                </v-col>
+                <v-col align="center"  @click="moodSelector('annoyed')">
+                    <v-img
+                    class="moodImg"
+                        width="100"
+                        src="../assets/storm.png">
+                    </v-img>
+                    <h3>Annoyed</h3>
+                </v-col>
             </v-row>
         </v-container>
     </div>
@@ -95,9 +95,9 @@ import cookies from "vue-cookies"
             }
         },
         methods: {
+            //passes the users mood to the post mood request based on the image clicked
             moodSelector(mood) {
                 this.userMood = mood
-                console.log(this.userMood)
             },
             postMood() {
                 axios.request({
@@ -115,15 +115,13 @@ import cookies from "vue-cookies"
                         console.log(response)
                         document.getElementById('moodResp').innerText="Sucess"
                         
-
                     }).catch((error) => {
                         console.error(error);
-                        document.getElementById('moodResp').innerText="Oh no, exceeded daily limit"
+                        document.getElementById('moodResp').innerText="Oh no, exceeded daily mood limit"
                     })
         },
         userMoodDate(){
             this.moodDate = new Date().toISOString().slice(0, 10);
-            console.log(this.moodDate)
             return this.moodDate
         }
         },
@@ -140,6 +138,7 @@ color: #A1887F;
 }
 h1{
     color: rgb(33, 47, 243);
+    font-size: 2.2rem;
 }
 div{
     width: 100%;
