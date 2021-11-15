@@ -9,7 +9,7 @@
                     id="mainImg"
                     alt="mindful quote"
                     src="../assets/journal.png"
-                    height="450"
+                    height="550"
                     ></v-img>
                 </v-col>
             </v-row>
